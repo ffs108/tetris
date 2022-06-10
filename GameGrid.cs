@@ -71,7 +71,7 @@ namespace Tetris
                 grid[row + numR, col] = grid[row,col];
             }
         }
-        private int clearFullRows()
+        public int clearFullRows()
         {
             int cleared = 0;
             for(int row=Rows-1; row >=0; row--){

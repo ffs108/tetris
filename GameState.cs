@@ -6,7 +6,7 @@ namespace Tetris
         public Block Current
         {
             get => cur;
-            private set {cur = value; cur.Reset();}
+            private set {cur = value; cur.reset();}
         }
 
         public GameGrid GameGrid{get;}
