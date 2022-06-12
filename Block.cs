@@ -2,6 +2,11 @@
 
 namespace Tetris
 {
+    /*
+        Parent class for every single tetrimino piece, has every method each class would need.
+        it can handle movemnent once a particular instances of a child is create since it is
+        all dependent on the position object and its place within the 2d array that is gamegrid
+    */
     public abstract class Block
     {
         protected abstract Position[][] Tiles { get; }
