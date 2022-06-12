@@ -19,8 +19,23 @@ using System.Windows.Navigation;
 
 namespace Tetris
 {
+
+    /*
+        Controls a lot of audio-visual elements that happen witin the application. Actually 
+        instantiates the gamestate and keeps track of when the game is over and provides the
+        appropiate visual queue. Responsible of controls as well as starting timers and displaying
+        score as well as restarting the game and providing SFX and music.
+
+        when displaying score, I chose to multiply the string and presenting that as the actual score
+        since the score number is tied to dificulty and it was hard to create a game where a tetris clear
+        would not launch you into the minimum drop delay
+    */
     public partial class MainWindow : Window
     {
+        /*
+            the order of these arrays correspond with the ID given to each block object child, thus
+            these need to keep in tact in order to actually display properly unless the ID is also changed.
+        */
         private readonly ImageSource[] tiles = new ImageSource[]
         {
             new BitmapImage(new Uri("assets/Ghost/Single.png", UriKind.Relative)),
@@ -141,6 +156,11 @@ namespace Tetris
                 imgCtrl[coor.Row, coor.Col].Source = tiles[block.Id];
             }
         }
+        
+        /*
+            this while loop below is basically the game as it will be constantly check and keep inputs and
+            draws elements, provides sfx and keeps track of score and time via other functions
+        */
         private async Task GameLoop()
         {
             Draw(state);
@@ -149,6 +169,7 @@ namespace Tetris
             while (!state.gameOver)
             {
                 timeElapsed.Start();
+                //basically dificulty scaling can be modified
                 int delay = Math.Max(minDelay, maxDelay - (state.score * delayDecrease));
                 await Task.Delay(delay);
                 state.moveBlockDown();
@@ -166,6 +187,7 @@ namespace Tetris
             FinalTimer.Text = $"Time: {timeElapsed.Elapsed.Minutes}:{timeElapsed.Elapsed.Seconds}";
         }
 
+        //controls below -- no pause implemented
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
             if (state.gameOver)
