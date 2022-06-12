@@ -2,6 +2,10 @@
 
 namespace Tetris
 {
+    /*
+    This is just a randomized queue(not in the data structure sense) of Block objects that will
+    be used to generate whats up next piece wise
+    */
     public class BlockQueue
     {
         private readonly Block[] blocks = new Block[]
