@@ -1,5 +1,9 @@
 ﻿namespace Tetris
 {
+    /*
+    keeps track of game events such as scores, when the gamegrid needs to be manipulated
+    calculates when and where a dropped piece can result and when and if holds occur.
+    */
     public class GameState
     {
         private Block cur;
