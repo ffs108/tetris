@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>assets\Icon\tetris.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="assets\background.png" />
+    <None Remove="assets\Ghost\Single.png" />
+    <None Remove="assets\Blocks\I.png" />
+    <None Remove="assets\Blocks\J.png" />
+    <None Remove="assets\Blocks\L.png" />
+    <None Remove="assets\Blocks\O.png" />
+    <None Remove="assets\Blocks\S.png" />
+    <None Remove="assets\Blocks\T.png" />
+    <None Remove="assets\Blocks\Z.png" />
+    <None Remove="assets\Music\lineClear.wav" />
+    <None Remove="assets\Music\mainTheme.wav" />
+    <None Remove="assets\Tiles\Blue.png" />
+    <None Remove="assets\Tiles\Green.png" />
+    <None Remove="assets\Tiles\LightBlue.png" />
+    <None Remove="assets\Tiles\Orange.png" />
+    <None Remove="assets\Tiles\Purple.png" />
+    <None Remove="assets\Tiles\Red.png" />
+    <None Remove="assets\Tiles\Yellow.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\Music\lineClear.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Music\mainTheme.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\background.png" />
+    <Resource Include="assets\Ghost\Single.png" />
+    <Resource Include="assets\Blocks\I.png" />
+    <Resource Include="assets\Blocks\J.png" />
+    <Resource Include="assets\Blocks\L.png" />
+    <Resource Include="assets\Blocks\O.png" />
+    <Resource Include="assets\Blocks\S.png" />
+    <Resource Include="assets\Blocks\T.png" />
+    <Resource Include="assets\Blocks\Z.png" />
+    <Resource Include="assets\Tiles\Blue.png" />
+    <Resource Include="assets\Tiles\Green.png" />
+    <Resource Include="assets\Tiles\LightBlue.png" />
+    <Resource Include="assets\Tiles\Orange.png" />
+    <Resource Include="assets\Tiles\Purple.png" />
+    <Resource Include="assets\Tiles\Red.png" />
+    <Resource Include="assets\Tiles\Yellow.png" />
+  </ItemGroup>
+
+</Project>

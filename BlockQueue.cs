@@ -1,5 +1,5 @@
-using System;
- 
+﻿using System;
+
 namespace Tetris
 {
     public class BlockQueue
@@ -12,7 +12,7 @@ namespace Tetris
         };
 
         private readonly Random rand = new Random();
-        public Block NextBlock{get; private set;}
+        public Block NextBlock { get; private set; }
 
         public BlockQueue()
         {
@@ -22,7 +22,7 @@ namespace Tetris
         {
             return blocks[rand.Next(blocks.Length)];
         }
-        
+
         public Block getAndUpdate()
         {
             Block option = NextBlock;
@@ -30,7 +30,7 @@ namespace Tetris
             {
                 NextBlock = randomBlock();
             }
-            while(option.Id == NextBlock.Id);
+            while (option.Id == NextBlock.Id);
             return option;
         }
     }

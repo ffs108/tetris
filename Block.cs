@@ -1,15 +1,15 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Tetris
 {
     public abstract class Block
     {
-        protected abstract Position[][] Tiles {get;}
-        protected abstract Position StartOffset {get;}
-        public abstract int Id {get;}
+        protected abstract Position[][] Tiles { get; }
+        protected abstract Position StartOffset { get; }
+        public abstract int Id { get; }
         private int rotationState;
         private Position offset;
-        
+
         public Block()
         {
             offset = new Position(StartOffset.Row, StartOffset.Col);
@@ -29,7 +29,7 @@ namespace Tetris
         }
         public void rotateLeft()
         {
-            if(rotationState == 0)
+            if (rotationState == 0)
             {
                 rotationState = Tiles.Length - 1;
             }

@@ -1,0 +1,7 @@
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\Tetris.exe
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\assets\Music\lineClear.wav
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\assets\Music\mainTheme.wav
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\Tetris.dll
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\Tetris.deps.json
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\Tetris.runtimeconfig.json
+C:\Users\Pancho\source\repos\Tetris\bin\Release\net6.0-windows\publish\Tetris.pdb
