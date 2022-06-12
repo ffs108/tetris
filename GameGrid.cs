@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    /*
+        This is the bulk of references that are found else where, the 2D array that is responsible for 
+        "holding" pieces. The actual implementation is that piece objects, tied to Position objects, dictate
+        what "cells" of the 2d array they occupy. This also checks whether a row is filled, is empty, moves
+        rows down after a clear and actually clears them as well.
+    */
     public class GameGrid
     {
         private int[,] grid;
