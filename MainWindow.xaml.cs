@@ -19,8 +19,7 @@ using System.Windows.Navigation;
 
 namespace Tetris
 {
-
-    /*
+        /*
         Controls a lot of audio-visual elements that happen witin the application. Actually 
         instantiates the gamestate and keeps track of when the game is over and provides the
         appropiate visual queue. Responsible of controls as well as starting timers and displaying
@@ -69,6 +68,7 @@ namespace Tetris
         private MediaPlayer clearedLine = new MediaPlayer();
         private int curGameScore = 0;
         private Stopwatch timeElapsed = new Stopwatch();
+        private bool isPaused = false;
 
         public MainWindow()
         {
@@ -156,7 +156,6 @@ namespace Tetris
                 imgCtrl[coor.Row, coor.Col].Source = tiles[block.Id];
             }
         }
-        
         /*
             this while loop below is basically the game as it will be constantly check and keep inputs and
             draws elements, provides sfx and keeps track of score and time via other functions
@@ -166,13 +165,22 @@ namespace Tetris
             Draw(state);
             Uri pathToFile = new Uri(AppDomain.CurrentDomain.BaseDirectory + "assets\\Music\\lineClear.wav",UriKind.Relative);
             clearedLine.Open(pathToFile);
+            
             while (!state.gameOver)
             {
-                timeElapsed.Start();
                 //basically dificulty scaling can be modified
                 int delay = Math.Max(minDelay, maxDelay - (state.score * delayDecrease));
                 await Task.Delay(delay);
-                state.moveBlockDown();
+                //if !pause then{
+                if (!isPaused)
+                {
+                    timeElapsed.Start();
+                    state.moveBlockDown();
+                }
+                else
+                {
+                    timeElapsed.Stop();
+                }
                 Draw(state);
                 if(curGameScore != state.score)
                 {
@@ -187,7 +195,21 @@ namespace Tetris
             FinalTimer.Text = $"Time: {timeElapsed.Elapsed.Minutes}:{timeElapsed.Elapsed.Seconds}";
         }
 
-        //controls below -- no pause implemented
+        private void pause()
+        {
+            if (!isPaused)
+            {
+                isPaused = true;
+                PauseMenu.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                isPaused = false;
+                PauseMenu.Visibility = Visibility.Hidden;
+            }
+        }
+        
+
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
             if (state.gameOver)
@@ -218,6 +240,9 @@ namespace Tetris
                 case Key.Space:
                     state.drop();
                     break;
+                case Key.P:
+                    pause();
+                    break;
                 default:
                     return;
             }
@@ -234,6 +259,8 @@ namespace Tetris
         {
             state = new GameState();
             GameOverMenu.Visibility = Visibility.Hidden;
+            isPaused = false;
+            PauseMenu.Visibility = Visibility.Hidden;
             timeElapsed.Reset();
             await GameLoop();
         }
